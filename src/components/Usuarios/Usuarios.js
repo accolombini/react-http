@@ -33,17 +33,18 @@ class Usuarios extends Component {
   }
 
   componentDidMount() {
-    fetch('https://reqres.in/api/users')
-      .then(resposta => resposta.json())
+
+    fetch('https://reqres.in/api/users')  // Estamos utilizando fetch para realizar uma requisição GET
+      .then(resposta => resposta.json())  // Para converter para .json
       .then(dados => {
-        const usuarios = dados.data.map(usuario => ({
+        const usuarios = dados.data.map(usuario => ({  // Mapeamento necessário para ajustar com a API que está sendo utilizada
           id: usuario.id,
           nome: usuario.first_name,
           sobrenome: usuario.last_name,
           email: usuario.email
         }))
 
-        this.setState({ usuarios })
+        this.setState({ usuarios })  // Atualização do estado
       })
   }
 
