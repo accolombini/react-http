@@ -11,7 +11,7 @@ class AdicionarUsuario extends Component {
   constructor(props) {
     super(props)
 
-    this.state = INITIAL_STATE
+    this.state = INITIAL_STATE  // Para manter sempre o estado inicial. Todos os testes serão zerados
 
     this.onChangeHandler = this.onChangeHandler.bind(this)
     this.onSubmitHandler = this.onSubmitHandler.bind(this)
@@ -22,12 +22,12 @@ class AdicionarUsuario extends Component {
     this.setState({ usuario: { ...this.state.usuario, [name]: value } })
   }
 
-  onSubmitHandler(event) {
+  onSubmitHandler(event) {  // Criando o método POST
     event.preventDefault()
    
     const usuario = this.state.usuario
 
-    fetch('https://reqres.in/api/users', {
+    fetch('https://reqres.in/api/users', {  // Chamando a API e passando a requisição POST
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(usuario)
