@@ -17,7 +17,7 @@ class Usuarios extends Component {
     this.setState({ usuarios: usuarios })
   }
 
-  removerUsuario(usuario) {
+  removerUsuario(usuario) {  // Método DELETE
     if (window.confirm(`Tem certeza que deseja remover "${usuario.nome} ${usuario.sobrenome}"?`)) {
       fetch(`https://reqres.in/api/users/${usuario.id}`, {
         method: 'DELETE'
